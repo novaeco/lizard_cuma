@@ -6,8 +6,8 @@
 2. source $IDF_PATH/export.sh  # Activez ESP-IDF env (export.ps1 sur Windows)
 3. idf.py add-dependency "lvgl/lvgl^9.0.0"  # Ajoutez LVGL (créé components/lvgl)
 4. Copy lv_conf.h from project to components/lvgl/lv_conf.h  # Custom config (if provided in project)
-5. git config --global --add safe.directory %cd%  # Fix Git ownership if error
-6. idf.py set-target esp32s3  # Set target (génère sdkconfig)
+5. git config --global --add safe.directory $(pwd)  # Corrige l'erreur "safe directory" (PowerShell : $(Get-Location))
+6. idf.py set-target esp32s3  # Génère un nouveau sdkconfig (ignorez "Build directory is empty")
 7. idf.py menuconfig  # Configurez (PSRAM, Wi-Fi, lwip, etc.)
 8. idf.py build flash monitor  # Build/Flash/Test
 
